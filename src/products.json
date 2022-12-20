@@ -1,0 +1,32 @@
+{
+    "cards" : [
+        {
+          "id": 1,  
+          "img": "https://images.fravega.com/f300/7067ff6e1755be689f9c0233d3e7dd37.jpg.webp",
+          "title": "Smart TV LED 65” 4K UHD Samsung Crystal",
+          "price": 249999,
+          "category": "televisores"
+        },
+        {
+            "id": 2,   
+          "img": "https://images.fravega.com/f300/5b313c7c73901152eb21459cabe727ed.jpg.webp",
+          "title": "Celular Samsung Galaxy S20 FE 5G 128GB Red",
+          "price": 149999,
+          "category": "celulares"
+        },
+        {
+            "id": 3, 
+          "img": "https://images.fravega.com/f300/a55db6e62b330fc4768c2bfa9370a5b0.jpg.webp",
+          "title": "Heladera Cíclica GAFA HGF358AFB 282Lts Blanca",
+          "price": 109999,
+          "category": "electrodomesticos"
+        },
+        {
+            "id": 4, 
+          "img": "https://images.fravega.com/f300/38809dd480cfb6c07a88b7f51ec5f927.jpg.webp",
+          "title": "Smartband Lenovo WD06 Screen",
+          "price": 7999,
+          "category": "accesorios"
+        }
+    ]
+}

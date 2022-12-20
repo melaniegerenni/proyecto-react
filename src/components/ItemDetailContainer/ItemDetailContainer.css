@@ -1,0 +1,20 @@
+.itemDetail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.divImg {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.divTitle {
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem;
+    border: 0.2px solid gray;
+}

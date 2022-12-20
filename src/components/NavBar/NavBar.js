@@ -2,8 +2,11 @@ import React from "react";
 import CartWidget from "../Cartwidget/CartWidget";
 import "./NavBar.css";
 import logoElectro from "./logoElectroOnline.svg";
+import { NavLink } from 'react-router-dom';
+
 
 const NavBar = () => {
+
   return (
     <nav className="navbar-dark navbar-expand-lg">
       <div className="container-fluid header d-lg-flex justify-content-lg-between">
@@ -19,9 +22,9 @@ const NavBar = () => {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <a className="navbar-brand me-3" href="#">
+          <NavLink className="navbar-brand me-3" to="/">
             <img src={logoElectro} className="logoElectro" alt="" />
-          </a>
+          </NavLink>
 
           <CartWidget />
         </div>
@@ -31,24 +34,30 @@ const NavBar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link activo" aria-current="page" href="#">
+              <NavLink className="nav-link activo" aria-current="page" to="/">
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/">
                 Productos
-              </a>
+              </NavLink>
             </li>
+            <li className="nav-item dropdown">
+          <NavLink className="nav-link dropdown-toggle" to="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Categorías
+          </NavLink>
+          <ul className="dropdown-menu dropdown-menu-dark">
+            <li><NavLink className="dropdown-item" to="/category/accesorios">Accesorios</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/category/celulares">Celulares</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/category/electrodomesticos">Electrodomésticos</NavLink></li>
+            <li><NavLink className="dropdown-item" to="/category/televisores">Televisores</NavLink></li>
+          </ul>
+        </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Categorías
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">
+              <NavLink className="nav-link" to="/">
                 Contacto
-              </a>
+              </NavLink>
             </li>
           </ul>
         </div>
