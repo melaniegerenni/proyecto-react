@@ -1,6 +1,9 @@
 .cards{
     display: flex;
     flex-wrap: wrap;
+    width: 98%;
+    margin: 1rem 1%;
+    justify-content: center;
 }
 
 .cardLink{

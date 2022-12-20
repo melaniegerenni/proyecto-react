@@ -1,0 +1,20 @@
+.divCounter {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.divCounter p {
+    font-weight: bold;
+    margin: auto 0;
+}
+
+.btnCounter {
+    border: none;
+    border-radius: 25%;
+    width: 2rem;
+    height: 2rem;
+    font-weight: bold;
+}

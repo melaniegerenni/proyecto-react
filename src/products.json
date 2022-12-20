@@ -1,32 +1,68 @@
 {
     "cards" : [
         {
-          "id": 1,  
+          "id": "1",  
           "img": "https://images.fravega.com/f300/7067ff6e1755be689f9c0233d3e7dd37.jpg.webp",
           "title": "Smart TV LED 65” 4K UHD Samsung Crystal",
           "price": 249999,
-          "category": "televisores"
+          "category": "televisores",
+          "freeShip": true
         },
         {
-            "id": 2,   
+            "id": "2",   
           "img": "https://images.fravega.com/f300/5b313c7c73901152eb21459cabe727ed.jpg.webp",
           "title": "Celular Samsung Galaxy S20 FE 5G 128GB Red",
           "price": 149999,
-          "category": "celulares"
+          "category": "celulares",
+          "freeShip": true
         },
         {
-            "id": 3, 
+            "id": "3", 
           "img": "https://images.fravega.com/f300/a55db6e62b330fc4768c2bfa9370a5b0.jpg.webp",
           "title": "Heladera Cíclica GAFA HGF358AFB 282Lts Blanca",
           "price": 109999,
-          "category": "electrodomesticos"
+          "category": "electrodomesticos",
+          "freeShip": true
         },
         {
-            "id": 4, 
+            "id": "4", 
           "img": "https://images.fravega.com/f300/38809dd480cfb6c07a88b7f51ec5f927.jpg.webp",
           "title": "Smartband Lenovo WD06 Screen",
           "price": 7999,
-          "category": "accesorios"
-        }
+          "category": "accesorios",
+          "freeShip": false
+        },
+        {
+          "id": "5", 
+        "img": "https://images.fravega.com/f300/b73687fba61b795cb7a32a9b3ad23dfb.jpg.webp",
+        "title": "Lavarropas Carga Frontal 6Kg 800 RPM Drean Next 6.08 ECO",
+        "price": 109999,
+        "category": "electrodomesticos",
+        "freeShip": true
+      },
+      {
+        "id": "6", 
+      "img": "https://images.fravega.com/f300/e3c5874e72104793c3c23c650af27388.jpg.webp",
+      "title": "Aire Acondicionado Split Frio/Calor Sansei 2800F 3300W",
+      "price": 145799,
+      "category": "electrodomesticos",
+      "freeShip": true
+    },
+    {
+      "id": "7", 
+    "img": "https://images.fravega.com/f300/ee52763a92e4568d20237c062870c869.jpg.webp",
+    "title": "Smart TV 50'' 4K UHD Philips 50PUD7406/77",
+    "price": 96999,
+    "category": "televisores",
+    "freeShip": true
+  },
+  {
+    "id": "8", 
+  "img": "https://images.fravega.com/f300/f741c5dc03f09eebef57e56dcc86c8f9.jpg.webp",
+  "title": "Celular Samsung Galaxy A23 128GB Negro",
+  "price": 88999,
+  "category": "celulares",
+  "freeShip": true
+}
     ]
 }

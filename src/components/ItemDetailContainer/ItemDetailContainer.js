@@ -2,15 +2,14 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import products from "../../products.json";
 import "./ItemDetailContainer.css";
+import Counter from "../Counter/Counter";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
 
-  const [{ img, title, price }] = products.cards.filter(
+  const [{ img, title, price, freeShip }] = products.cards.filter(
     (item) => item.id === id
   );
-
-  console.log(title);
 
   return (
     <div className="itemDetail">
@@ -19,8 +18,13 @@ const ItemDetailContainer = () => {
       </div>
 
       <div className="divTitle">
-        <h5>{title}</h5>
-        <p>${price}</p>
+        <div>
+          <h5>{title}</h5>
+          <p className="price">${price}</p>
+        </div>
+        <p className="textLlega">Llega {freeShip && "GRATIS"} mañana</p>
+        <Counter />
+        <button className="btnComprar">Agregar al carrito</button>
       </div>
     </div>
   );

@@ -34,13 +34,8 @@ const NavBar = () => {
         >
           <ul className="navbar-nav">
             <li className="nav-item">
-              <NavLink className="nav-link activo" aria-current="page" to="/">
+              <NavLink className="nav-link" aria-current="page" to="/">
                 Home
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/">
-                Productos
               </NavLink>
             </li>
             <li className="nav-item dropdown">
