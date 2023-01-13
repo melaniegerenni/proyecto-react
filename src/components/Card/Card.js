@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CarritoContext } from "../../context/CarritoContext";
+import Counter from "../Counter/Counter";
 import "./Card.css";
 
 const Card = (props) => {
-  const { id, img, title, price, freeShip } = props;
+  const { carrito } = useContext(CarritoContext);
+  const { item } = props;
+  const { id, img, title, price } = item;
+  const find = carrito.find((obj) => obj.id === id);
   return (
-    <Link className={"cardLink"} to={`/item/${id}`}>
-      <div className="card cardDiv">
+    <div className="card cardDiv cardLink">
+      <Link className="link" to={`/item/${id}`}>
         <img src={img} className="card-img-top imgCard" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">{title}</h5>
-          <p className="card-text">${price}</p>
-          <p className="textLlega">Llega {freeShip && "GRATIS"} mañana</p>
-        </div>
+        <h5 className="card-title cardTitle">{title}</h5>
+      </Link>
+      <div className="card-body">
+        <p className="card-text cardPrice">${price}</p>
+        <Counter item={item} initialValue={find ? find.cantidad : 0} />
       </div>
-    </Link>
+    </div>
   );
 };
 

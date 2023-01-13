@@ -1,26 +1,43 @@
-import React, {useState} from 'react';
-import './Counter.css';
+import React, { useContext, useState } from "react";
+import { CarritoContext } from "../../context/CarritoContext";
+import "./Counter.css";
 
-const Counter = () => {
-    const [counter, setCounter] = useState(0)
+const Counter = (props) => {
+  const { addCarrito } = useContext(CarritoContext);
+  const { item, initialValue } = props;
+  const [counter, setCounter] = useState(initialValue);
 
-    const suma = () => {
-        setCounter(counter + 1);
+  const suma = () => {
+    setCounter(counter + 1);
+  };
+
+  const resta = () => {
+    if (counter > 0) {
+      setCounter(counter - 1);
     }
+  };
 
-    const resta = () => {
-        if(counter > 0) {
-            setCounter(counter - 1);
-        }
-    }
+  const producto = {
+    ...item,
+    cantidad: counter,
+  };
 
   return (
-    <div className='divCounter'>
-        <button onClick={resta} className="btnCounter">-</button>
+    <div className="divAgregar">
+      <div className="divCounter">
+        <button onClick={resta} className="btnCounter">
+          -
+        </button>
         <p>{counter}</p>
-        <button onClick={suma} className="btnCounter">+</button>
+        <button onClick={suma} className="btnCounter">
+          +
+        </button>
+      </div>
+      <button className="btnAgregar" onClick={() => addCarrito(producto)}>
+        Agregar al carrito
+      </button>
     </div>
-  )
-}
+  );
+};
 
-export default Counter
+export default Counter;

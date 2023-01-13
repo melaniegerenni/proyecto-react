@@ -1,3 +1,9 @@
+.divAgregar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .divCounter {
     display: flex;
     gap: 1rem;
@@ -17,4 +23,11 @@
     width: 2rem;
     height: 2rem;
     font-weight: bold;
+}
+
+.btnAgregar{
+    margin: 1rem;
+    padding: 0.3rem 0.5rem;
+    border: none;
+    border-radius: 5px;
 }

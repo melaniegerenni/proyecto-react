@@ -7,19 +7,24 @@
     align-items: center;
 }
 
-.imgCard{
-    width: 60%;
-    margin-top: 0.5rem;
+.link{
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
 }
 
-.textLlega {
-    width: 80%;
-    background-color: rgba(0, 237, 212, 0.1);
-    border: none;
+.imgCard{
+    width: 70%;
+    margin: 0.5rem 0;
+}
+
+.cardTitle, .cardPrice{
+    text-align: center;
+    text-decoration: none;
     color: black;
-    border-radius: 5px;
-    padding: 0.5rem;
-    margin: 0 10%;
 }
 
 .cardLink {
