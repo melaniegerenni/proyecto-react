@@ -1,9 +1,13 @@
+.bodyList{
+    display: grid;
+    grid-template-columns: 0.5fr 2fr;
+}
+
 .cards{
     display: flex;
     flex-wrap: wrap;
     width: 98%;
     margin: 1rem 1%;
-    justify-content: center;
 }
 
 .cardLink{

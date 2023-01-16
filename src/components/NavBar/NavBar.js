@@ -2,7 +2,7 @@ import React from "react";
 import CartWidget from "../Cartwidget/CartWidget";
 import "./NavBar.css";
 import logoElectro from "./logoElectroOnline.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -24,7 +24,7 @@ const NavBar = () => {
             <img src={logoElectro} className="logoElectro" alt="" />
           </NavLink>
 
-          <CartWidget />
+          <Link to="/cart"> <CartWidget /> </Link>
         </div>
         <div
           className="collapse navbar-collapse justify-content-lg-end me-3"

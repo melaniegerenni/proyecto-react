@@ -12,12 +12,16 @@ const ItemListContainer = () => {
     ? cards.filter((item) => item.category === categoryid)
     : cards;
 
+  /* let marcas = filtroCategoria.map(item => item.marca);
+  marcas = marcas.filter((item, index) => marcas.indexOf(item) === index); */
+
   return (
     <div className="cards">
       {filtroCategoria.map((item) => (
         <Card key={item.id} item={item} />
       ))}
     </div>
+  
   );
 };
 

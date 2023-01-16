@@ -4,7 +4,7 @@ import "./Counter.css";
 
 const Counter = (props) => {
   const { addCarrito } = useContext(CarritoContext);
-  const { item, initialValue } = props;
+  const { item, initialValue, btnText } = props;
   const [counter, setCounter] = useState(initialValue);
 
   const suma = () => {
@@ -34,7 +34,7 @@ const Counter = (props) => {
         </button>
       </div>
       <button className="btnAgregar" onClick={() => addCarrito(producto)}>
-        Agregar al carrito
+        {btnText}
       </button>
     </div>
   );
