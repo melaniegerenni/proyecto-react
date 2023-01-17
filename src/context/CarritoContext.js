@@ -8,18 +8,25 @@ const CarritoContextProvider = ({ children }) => {
   const addCarrito = (item) => {
     const encontrado = carrito.find((obj) => obj.id === item.id);
     const i = carrito.indexOf(encontrado);
-    console.log(encontrado);
-    console.log(i);
     if (encontrado) {
-      const i = carrito.indexOf(encontrado);
       carrito[i].cantidad = item.cantidad;
+      setCarrito([...carrito]);
     } else {
       setCarrito([...carrito, item]);
     }
   };
 
+  const deleteCarrito = (item) => {
+      const encontrado = carrito.find((obj) => obj.id === item.id);
+      const i = carrito.indexOf(encontrado);
+      if(encontrado) {
+        carrito.splice(i, 1);
+        setCarrito([...carrito])
+      }
+  };
+
   return (
-    <CarritoContext.Provider value={{ carrito, addCarrito }}>
+    <CarritoContext.Provider value={{ carrito, addCarrito, deleteCarrito }}>
       {children}
     </CarritoContext.Provider>
   );

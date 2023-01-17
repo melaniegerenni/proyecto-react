@@ -9,7 +9,7 @@ const Cart = () => {
   return (
     <div>
       <h2>Carrito</h2>
-      <ul>
+      {carrito.length > 0 ? <ul>
         {carrito.map((item) => {
           const { id, title, price, cantidad } = item;
           return (
@@ -21,7 +21,7 @@ const Cart = () => {
             </li>
           );
         })}
-      </ul>
+      </ul> : <h3>El carrito está vacío</h3>}
     </div>
   );
 };

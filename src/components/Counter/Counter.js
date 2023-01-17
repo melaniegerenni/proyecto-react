@@ -3,9 +3,10 @@ import { CarritoContext } from "../../context/CarritoContext";
 import "./Counter.css";
 
 const Counter = (props) => {
-  const { addCarrito } = useContext(CarritoContext);
+  const { addCarrito, deleteCarrito } = useContext(CarritoContext);
   const { item, initialValue, btnText } = props;
   const [counter, setCounter] = useState(initialValue);
+
 
   const suma = () => {
     setCounter(counter + 1);
@@ -33,9 +34,15 @@ const Counter = (props) => {
           +
         </button>
       </div>
-      <button className="btnAgregar" onClick={() => addCarrito(producto)}>
-        {btnText}
+      {(initialValue > 0 && counter === 0) ?  
+      <button className="btnAgregar" onClick={() => deleteCarrito(producto)}>
+       Eliminar del carrito
       </button>
+      : 
+      <button className="btnAgregar" onClick={() => addCarrito(producto)}>
+       {btnText}
+      </button>
+      }
     </div>
   );
 };
