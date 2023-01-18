@@ -6,7 +6,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import CarritoContextProvider from "./context/CarritoContext";
 import Cart from "./components/Cart/Cart";
 
-function App() {
+function App() { 
+
   return (
     <BrowserRouter>
       <CarritoContextProvider className="App">

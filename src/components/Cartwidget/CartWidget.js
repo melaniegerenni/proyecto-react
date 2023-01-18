@@ -4,7 +4,6 @@ import "./CartWidget.css";
 
 const CartWidget = () => {
   const { carrito } = useContext(CarritoContext);
-  console.log(carrito);
 
   return (
     <button className="cart">
