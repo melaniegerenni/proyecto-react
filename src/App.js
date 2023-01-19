@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import CarritoContextProvider from "./context/CarritoContext";
 import Cart from "./components/Cart/Cart";
+import LogIn from "./components/LogIn/LogIn";
 
 function App() { 
 
@@ -21,6 +22,7 @@ function App() {
               element={<ItemListContainer />}
             />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<LogIn />} />
           </Routes>
         </div>
       </CarritoContextProvider>

@@ -1,10 +1,22 @@
-import React from "react";
+import React, {useEffect} from "react";
 import CartWidget from "../Cartwidget/CartWidget";
 import "./NavBar.css";
 import logoElectro from "./logoElectroOnline.svg";
 import { Link, NavLink } from "react-router-dom";
+import useFirebase from "../../hook/useFirebase";
 
 const NavBar = () => {
+  const {userInfo} = useFirebase();
+  console.log(userInfo);
+
+  useEffect(() => {
+  
+  
+    return () => {
+    }
+  }, [userInfo])
+  
+
   return (
     <nav className="navbar-dark navbar-expand-lg">
       <div className="container-fluid header d-lg-flex justify-content-lg-between">
@@ -75,6 +87,11 @@ const NavBar = () => {
             <li className="nav-item">
               <NavLink className="nav-link" to="/">
                 Contacto
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/login">
+                {userInfo ? userInfo.nombre : "Ingresar"}
               </NavLink>
             </li>
           </ul>

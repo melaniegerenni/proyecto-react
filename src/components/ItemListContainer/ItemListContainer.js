@@ -8,19 +8,20 @@ import Spinner from "../Spinner/Spinner";
 
 const ItemListContainer = () => {
   const { categoryid } = useParams();
-  const { productos, loading, getProducts } = useFirebase();
+  const { productos, loading, filtrados, category, getProducts, filtroCategoria } =
+    useFirebase();
+
+  
 
   useEffect(() => {
-    getProducts();
-  }, []);
+    if (categoryid) {
+      filtroCategoria(categoryid);
+    } else {
+      getProducts();
+    }
+  }, [categoryid]);
 
-  const cards = productos;
-  const filtroCategoria = categoryid
-    ? cards.filter((item) => item.category === categoryid)
-    : cards;
-
-  /* let marcas = filtroCategoria.map(item => item.marca);
-  marcas = marcas.filter((item, index) => marcas.indexOf(item) === index); */
+  const cards = categoryid ? filtrados : productos;
 
   return (
     <>
@@ -29,10 +30,13 @@ const ItemListContainer = () => {
           <Spinner />
         </div>
       ) : (
+        <div className="bodyItem">
+        <h2>{categoryid ? category : "Productos"}</h2>
         <div className="cards">
-          {filtroCategoria.map((item) => (
+          {cards.map((item) => (
             <Card key={item.id} item={item} />
           ))}
+        </div>
         </div>
       )}
     </>

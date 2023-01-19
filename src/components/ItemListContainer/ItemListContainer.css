@@ -1,6 +1,6 @@
-.bodyList{
-    display: grid;
-    grid-template-columns: 0.5fr 2fr;
+.bodyItem h2{
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .body{
