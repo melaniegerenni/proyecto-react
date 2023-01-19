@@ -11,6 +11,7 @@
 .cards{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     width: 98%;
     margin: 1rem 1%;
 }

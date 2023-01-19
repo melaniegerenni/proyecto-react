@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Card from "../Card/Card";
-// import products from "../../products.json";
 import "./ItemListContainer.css";
 import { useParams } from "react-router-dom";
 import useFirebase from "../../hook/useFirebase";

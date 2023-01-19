@@ -1,0 +1,25 @@
+.user{
+    background-color: transparent;
+    border: none;
+    position: relative;
+    padding: 0.3rem;
+    color: white;
+    margin-left: 1rem;
+}
+
+.userDot{
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 1rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+}
+
+.userAc{
+    background-color: green;
+}
+
+.userDeac{
+    background-color: red;
+}

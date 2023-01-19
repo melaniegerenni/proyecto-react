@@ -1,6 +1,6 @@
 .cardDiv{
-    width: 18rem;
-    height: 450px;
+    width: 22%;
+    /* height: 450px; */
     display: flex;
     flex-direction: column;
     justify-content: center;

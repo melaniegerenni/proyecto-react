@@ -4,7 +4,7 @@ import "./Counter.css";
 
 const Counter = (props) => {
   const { addCarrito, deleteCarrito } = useContext(CarritoContext);
-  const { item, initialValue, btnText } = props;
+  const { item, initialValue } = props;
   const [counter, setCounter] = useState(initialValue);
 
 
@@ -35,12 +35,12 @@ const Counter = (props) => {
         </button>
       </div>
       {(initialValue > 0 && counter === 0) ?  
-      <button className="btnAgregar" onClick={() => deleteCarrito(producto)}>
+      <button className="btnAgregar eliminar" onClick={() => deleteCarrito(producto)}>
        Eliminar del carrito
       </button>
       : 
       <button className="btnAgregar" onClick={() => addCarrito(producto)}>
-       {btnText}
+       Agregar al carrito
       </button>
       }
     </div>

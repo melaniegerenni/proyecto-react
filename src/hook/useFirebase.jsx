@@ -20,21 +20,16 @@ const useFirebase = () => {
   const current = auth.currentUser;
   const [show, setShow] = useState(null);
   const [productos, setProductos] = useState([]);
+  const [producto, setProducto] = useState({})
   const [filtrados, setFiltrados] = useState([]);
   const [category, setCategory] = useState(null);
   const [loading, setLoading] = useState(false);
-  console.log(auth.currentUser);
-  const [user, setUser] = useState(current);
   const [userInfo, setUserInfo] = useState(null);
-
-  console.log(user);
-  console.log(userInfo);
 
   useEffect(() => {
     if (current) {
       getUser(current.uid);
     } else {
-      setUser(null);
       setUserInfo(null);
     }
     return () => {};
@@ -52,6 +47,19 @@ const useFirebase = () => {
       console.log(error);
     }
   };
+
+  const getProduct = async (id) => {
+    setLoading(true);
+    try {
+      const document = doc(db, "productos", id);
+      const response = await getDoc(document);
+      const result = response.data();
+      setProducto({id,...result});
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   const filtroCategoria = async (category) => {
     setLoading(true);
@@ -71,11 +79,13 @@ const useFirebase = () => {
   };
 
   const getUser = async (id) => {
+    setLoading(true)
     try {
       const document = doc(db, "users", id);
       const response = await getDoc(document);
       const result = response.data();
       setUserInfo(result);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -91,7 +101,6 @@ const useFirebase = () => {
     const txtEmail = document.getElementById("emailSignUp").value;
     const txtPassword = document.getElementById("passwSignUp").value;
     try {
-      const usersCol = collection(db, "users");
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         txtEmail,
@@ -107,13 +116,11 @@ const useFirebase = () => {
     const txtEmail = document.getElementById("emailSignIn").value;
     const txtPassword = document.getElementById("passwSignIn").value;
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         txtEmail,
         txtPassword
       );
-      console.log(userCredential.user.uid);
-      setUser(userCredential.user);
     } catch (error) {
       console.log(error);
     }
@@ -140,10 +147,12 @@ const useFirebase = () => {
 
   return {
     productos,
+    producto,
     loading,
     filtrados,
     category,
     getProducts,
+    getProduct,
     filtroCategoria,
     getUser,
     userInfo,
