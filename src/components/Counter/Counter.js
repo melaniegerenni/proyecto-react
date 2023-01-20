@@ -9,7 +9,10 @@ const Counter = (props) => {
 
 
   const suma = () => {
-    setCounter(counter + 1);
+    if(counter < item.stock){
+      setCounter(counter + 1);
+    }
+    
   };
 
   const resta = () => {

@@ -9,20 +9,16 @@ const LogIn = () => {
   const { show, logOut, userInfo, loading } = useFirebase();
 
   return (
-    <div className="d-flex w-100">
+    <div>
       {show === null ? (
-        <div className="body">
-          <Spinner />
-        </div>
+        <Spinner />
       ) : show ? (
-        <>
+        <div className="registro">
           <SignIn />
           <SignUp />
-        </>
-      ) : loading ? (
-        <div className="body">
-          <Spinner />
         </div>
+      ) : loading ? (
+        <Spinner />
       ) : (
         <div className="logOut">
           {userInfo && <h2>Hola {userInfo.nombre}!</h2>}

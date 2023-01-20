@@ -4,3 +4,23 @@
   box-sizing: border-box;
 }
 
+.btnAzul{
+  background-color: rgb(0, 24, 51);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.3rem 0.5rem;
+}
+
+.btnAzul:hover {
+  background-color: rgb(196, 194, 194);
+  color: black;
+}
+
+.btnIcon{
+  background-color: transparent;
+  border: none;
+  position: relative;
+  padding: 0.3rem;
+  color: black;
+}

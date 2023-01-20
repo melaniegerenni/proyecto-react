@@ -3,8 +3,8 @@ import './LogInIcon.css';
 
 const LogInIcon = ({user}) => {
   return (
-    <button className="user">
-      <i className="userIcon fa-solid fa-user fa-xl"></i>
+    <button className="btnIcon">
+      <i className="fa-solid fa-user fa-xl" style={{color: "white"}}></i>
 
       
         <div className={"userDot " + (user ? "userAc" : "userDeac")}>

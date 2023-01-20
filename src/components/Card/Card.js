@@ -7,7 +7,7 @@ import "./Card.css";
 const Card = (props) => {
   const { carrito } = useContext(CarritoContext);
   const { item } = props;
-  const { id, img, title, price } = item;
+  const { id, img, title, price, stock } = item;
   const find = carrito.find((obj) => obj.id === id);
   return (
     <div className="card cardDiv cardLink">
@@ -18,6 +18,7 @@ const Card = (props) => {
       <div className="card-body">
         <p className="card-text cardPrice">${price}</p>
         <Counter item={item} initialValue={find ? find.cantidad : 0} />
+        <p className="text-center">Disponibles: {stock}</p>
       </div>
     </div>
   );

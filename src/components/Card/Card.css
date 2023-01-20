@@ -1,5 +1,5 @@
 .cardDiv{
-    width: 22%;
+    width: 80vw;
     /* height: 450px; */
     display: flex;
     flex-direction: column;
@@ -35,4 +35,10 @@
 .cardLink:hover {
     scale: 1.05;
     color: inherit;
+}
+
+@media screen and (min-width: 576px){
+    .cardDiv{
+        width:inherit;
+    }
 }

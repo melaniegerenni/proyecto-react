@@ -12,15 +12,15 @@ const NavBar = () => {
 
   useEffect(() => {
     getProducts();
-    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <nav className="navBar">
-      <NavLink className="me-3" to="/">
+      <NavLink className="logoApp" to="/">
         <img src={logoElectro} className="logoElectro" alt="" />
       </NavLink>
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end gap-3">
       <MenuCategorias productos={productos} />
       <Link to="/cart">
         <CartWidget />

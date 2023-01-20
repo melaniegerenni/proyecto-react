@@ -6,16 +6,16 @@ const SignIn = () => {
 
   return (
     <div className="sign">
-        <h5>Iniciar sesión</h5>
+        <h5 className="text-center">Iniciar sesión</h5>
       <label>
         Email
         <input type="email" placeholder="me@hello.com" id="emailSignIn" />
       </label>
       <label>
         Password
-        <input type="password" placeholder="****" id="passwSignIn" />
+        <input type="password" placeholder="******" id="passwSignIn" />
       </label>
-      <button onClick={logIn}>Sign In</button>
+      <button className="btnAzul" onClick={logIn}>Sign In</button>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const SignUp = () => {
 
   return (
     <div className="sign">
-      <h5>No tenés cuenta? Registrate ahora!</h5>
+      <h5 className="text-center">No tenés cuenta? Registrate ahora!</h5>
       <label>
         Nombre
         <input type="text" placeholder="nombre" id="nombre" />
@@ -22,9 +22,9 @@ const SignUp = () => {
       </label>
       <label>
         Password
-        <input type="password" placeholder="****" id="passwSignUp" />
+        <input type="password" placeholder="******" id="passwSignUp" />
       </label>
-      <button onClick={createUser}>Sing Up</button>
+      <button className="btnAzul" onClick={createUser}>Sing Up</button>
     </div>
   );
 };

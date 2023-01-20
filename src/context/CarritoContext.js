@@ -11,7 +11,7 @@ const CarritoContextProvider = ({ children }) => {
     if (encontrado) {
       carrito[i].cantidad = item.cantidad;
       setCarrito([...carrito]);
-    } else {
+    } else if(item.cantidad > 0) {
       setCarrito([...carrito, item]);
     }
   };
@@ -25,8 +25,14 @@ const CarritoContextProvider = ({ children }) => {
       }
   };
 
+  const vaciarCarrito = () => {
+    if(carrito.length > 0){
+      setCarrito([]);
+    }
+  }
+
   return (
-    <CarritoContext.Provider value={{ carrito, addCarrito, deleteCarrito }}>
+    <CarritoContext.Provider value={{ carrito, addCarrito, deleteCarrito, vaciarCarrito }}>
       {children}
     </CarritoContext.Provider>
   );

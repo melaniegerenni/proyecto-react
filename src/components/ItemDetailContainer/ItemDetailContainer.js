@@ -10,14 +10,13 @@ const ItemDetailContainer = () => {
   const { carrito } = useContext(CarritoContext);
   const { id } = useParams();
   const { producto, getProduct, loading } = useFirebase();
-  const { img, title, price } = producto;
+  const { img, title, price, logo, stock } = producto;
 
   const prodCarrito = carrito.find((item) => item.id === id);
-  
+
   useEffect(() => {
     getProduct(id);
-
-    return () => {};
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -33,12 +32,14 @@ const ItemDetailContainer = () => {
           </div>
 
           <div className="divTitle">
-            <div>
-              <h5>{title}</h5>
-              <p className="price">${price}</p>
-            </div>
-
-            <Counter item={producto} initialValue={prodCarrito ? prodCarrito.cantidad : 0} />
+            <img src={logo} alt="" />
+            <h5>{title}</h5>
+            <p className="price">${price}</p>
+            <Counter
+              item={producto}
+              initialValue={prodCarrito ? prodCarrito.cantidad : 0}
+            />
+            <p className="text-center">Disponibles: {stock}</p>
           </div>
         </div>
       )}

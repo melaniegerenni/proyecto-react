@@ -3,8 +3,12 @@
     padding: 1rem;
 }
 
+.logoApp{
+    width: 30%;
+}
+
 .logoElectro{
-    height: 3rem;
+    width: 100%;
 }
 
 .header li{
@@ -21,6 +25,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 
 }
 
@@ -28,4 +35,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media screen and (min-width: 576px) {
+    .logoApp{
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .logoApp{
+        width: 15%;
+    }
 }

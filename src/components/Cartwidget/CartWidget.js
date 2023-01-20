@@ -6,8 +6,8 @@ const CartWidget = () => {
   const { carrito } = useContext(CarritoContext);
 
   return (
-    <button className="cart">
-      <i className="cartIcon fa-solid fa-cart-shopping fa-xl"></i>
+    <button className="btnIcon">
+      <i className="fa-solid fa-cart-shopping fa-xl" style={{color: "white"}}></i>
 
       {carrito.length > 0 ? (
         <div className="cartNumber">

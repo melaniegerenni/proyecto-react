@@ -6,6 +6,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import CarritoContextProvider from "./context/CarritoContext";
 import Cart from "./components/Cart/Cart";
 import LogIn from "./components/LogIn/LogIn";
+import Checkout from "./components/Checkout/Checkout";
+import Footer from "./components/Footer/Footer";
 
 function App() { 
 
@@ -13,7 +15,6 @@ function App() {
     <BrowserRouter>
       <CarritoContextProvider className="App">
         <NavBar />
-        <div className="body">
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/item/:id" element={<ItemDetailContainer />} />
@@ -23,8 +24,9 @@ function App() {
             />
             <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<LogIn />} />
+            <Route path="/checkout" element={<Checkout />} />
           </Routes>
-        </div>
+          <Footer />
       </CarritoContextProvider>
     </BrowserRouter>
   );
