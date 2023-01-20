@@ -4,7 +4,7 @@ import "./NavBar.css";
 import logoElectro from "./logoElectroOnline.svg";
 import { Link, NavLink } from "react-router-dom";
 import useFirebase from "../../hook/useFirebase";
-import MenuCategorias from "./Categorias/MenuCategorias";
+import MenuCategorias from "../Categorias/MenuCategorias";
 import LogInIcon from "../LogInIcon/LogInIcon";
 
 const NavBar = () => {
@@ -12,7 +12,7 @@ const NavBar = () => {
 
   useEffect(() => {
     getProducts();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
   return (

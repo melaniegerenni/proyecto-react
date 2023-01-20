@@ -3,6 +3,12 @@
     margin-bottom: 30px;
 }
 
+.detailCart{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
 .cartContainer{
     display: flex;
     flex-direction: column;
@@ -48,10 +54,20 @@
     grid-area: price;
 }
 
+.userDetail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userDetail h4 {
+    font-weight: bold;
+    text-align: center;
+}
+
 .checkIcon{
     color: green;
 }
-
 
 
 @media screen and (min-width: 768px) {
@@ -60,6 +76,11 @@
         grid-template-columns: 1.5fr 1fr;
         gap: 2rem;
     }
+
+    .userDetail h4 {
+        text-align: left;
+    }
+
 }
 
 @media screen and (min-width: 992px) {

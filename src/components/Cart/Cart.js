@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import "./Cart.css";
 import useFirebase from "../../hook/useFirebase";
 import ItemCart from "./ItemCart";
@@ -11,8 +12,9 @@ import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const navigate = useNavigate();
-  const { carrito, vaciarCarrito } = useContext(CarritoContext);
-  const { userInfo, loading, placeOrder, exito } = useFirebase();
+  const { loading } = useContext(GlobalContext);
+  const { carrito, vaciarCarrito, setCarrito } = useContext(CarritoContext);
+  const { userInfo, placeOrder, exito } = useFirebase();
   const totalCarrito = carrito.reduce(
     (prev, curr) => prev + curr.cantidad * curr.price,
     0
@@ -24,8 +26,12 @@ const Cart = () => {
 
   const finalizar = (datos) => {
     placeOrder(datos);
-    vaciarCarrito();
+    setCarrito([]);
   };
+
+  /* useEffect(() => {
+  }, [enable]) */
+  
 
   return (
     <>
@@ -33,9 +39,11 @@ const Cart = () => {
         <Spinner />
       ) : exito ? (
         <div className="d-flex flex-column align-items-center gap-3 mt-3">
-        <h1 className="text-center">Compra realizada con éxito!</h1>
-        <i className="checkIcon fa-solid fa-circle-check fa-4x"></i>
-        <button className="btnAzul" onClick={() => navigate('/')}>Volver a comprar</button>
+          <h1 className="text-center">Compra realizada con éxito!</h1>
+          <i className="checkIcon fa-solid fa-circle-check fa-4x"></i>
+          <button className="btnAzul" onClick={() => navigate("/")}>
+            Volver a comprar
+          </button>
         </div>
       ) : (
         <div className="cartBody">
@@ -47,8 +55,10 @@ const Cart = () => {
                   return <ItemCart key={item.id} item={item} />;
                 })}
                 <div className="d-flex align-items-center justify-content-between">
-                <button className="btnIcon" onClick={vaciarCarrito}><i className="fa-solid fa-trash fa-xl"></i></button>
-                <h4 className="text-end">Total: ${totalCarrito}</h4>
+                  <button className="btnIcon" onClick={vaciarCarrito}>
+                    <i className="fa-solid fa-trash fa-xl"></i>
+                  </button>
+                  <h4 className="text-end">Total: ${totalCarrito}</h4>
                 </div>
               </div>
               <div>
@@ -77,8 +87,8 @@ const Cart = () => {
             </div>
           ) : (
             <div className="d-flex flex-column align-items-center gap-3">
-            <h3 className="text-center">El carrito está vacío</h3>
-            <i className="fa-solid fa-thumbs-down fa-4x"></i>
+              <h3 className="text-center">El carrito está vacío</h3>
+              <i className="fa-solid fa-thumbs-down fa-4x"></i>
             </div>
           )}
         </div>

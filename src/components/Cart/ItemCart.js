@@ -11,11 +11,10 @@ const ItemCart = (props) => {
       <img className="imgItem" src={img} alt="" />
       <h6 className="titleItem">{title}</h6>
       <p className="priceCart">${price}</p>
-      <div className="counterItem"><Counter item={item} initialValue={cantidad} /></div>
-      
+      <div className="counterItem"><Counter item={item} initialValue={cantidad} btnText="Actualizar" /></div>
       <h5 className="itemTotal text-center">${price * cantidad}</h5>
       <button className="btnIcon" onClick={() => deleteCarrito(item)}>
-        <i className="fa-solid fa-trash fa-xl" style={{color: "red"}} ></i>
+        <i className="fa-solid fa-trash fa-xl text-danger" ></i>
       </button>
     </div>
   );

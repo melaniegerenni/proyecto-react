@@ -1,23 +1,41 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { CarritoContext } from "../../context/CarritoContext";
 import "./Counter.css";
 
 const Counter = (props) => {
-  const { addCarrito, deleteCarrito } = useContext(CarritoContext);
-  const { item, initialValue } = props;
+  const { carrito, addCarrito, deleteCarrito } = useContext(CarritoContext);
+  const { item, initialValue, btnText } = props;
   const [counter, setCounter] = useState(initialValue);
+  const [enable, setEnable] = useState(false);
 
-
+  useEffect(() => {
+    if(counter === item.cantidad){
+      setEnable(false);
+    }
+    // eslint-disable-next-line
+  }, [carrito])
+  
   const suma = () => {
     if(counter < item.stock){
-      setCounter(counter + 1);
+      const newCounter = counter + 1
+      setCounter(newCounter);
+      if(newCounter === item.cantidad || newCounter === 0){
+        setEnable(false);
+      } else {
+        setEnable(true)
+      }
     }
-    
   };
 
   const resta = () => {
     if (counter > 0) {
-      setCounter(counter - 1);
+      const newCounter = counter - 1
+      setCounter(newCounter);
+      if(newCounter === item.cantidad || newCounter === 0){
+        setEnable(false);
+      } else {
+        setEnable(true)
+      }
     }
   };
 
@@ -37,15 +55,17 @@ const Counter = (props) => {
           +
         </button>
       </div>
+      <div>
       {(initialValue > 0 && counter === 0) ?  
       <button className="btnAgregar eliminar" onClick={() => deleteCarrito(producto)}>
        Eliminar del carrito
       </button>
       : 
-      <button className="btnAgregar" onClick={() => addCarrito(producto)}>
-       Agregar al carrito
+      <button className={enable ? "btnAgregar" : "btnDis"} onClick={() => addCarrito(producto)} disabled={!enable}>
+        {btnText}
       </button>
       }
+      </div>
     </div>
   );
 };

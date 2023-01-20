@@ -17,7 +17,7 @@ const Card = (props) => {
       </Link>
       <div className="card-body">
         <p className="card-text cardPrice">${price}</p>
-        <Counter item={item} initialValue={find ? find.cantidad : 0} />
+        <Counter item={find || item} initialValue={find ? find.cantidad : 0} btnText="Agregar al carrito" />
         <p className="text-center">Disponibles: {stock}</p>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { db, auth } from "../firebase";
 import {
   collection,
@@ -16,17 +16,19 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
+import { GlobalContext } from "../context/GlobalContext";
 
 const useFirebase = () => {
+  const {setLoading} = useContext(GlobalContext);
   const current = auth.currentUser;
-  const [show, setShow] = useState(null);
+  const [show, setShow] = useState(false);
   const [productos, setProductos] = useState([]);
   const [producto, setProducto] = useState({})
   const [filtrados, setFiltrados] = useState([]);
   const [category, setCategory] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [userInfo, setUserInfo] = useState(null);
   const [exito, setExito] = useState(false);
+  const [errorLogin, setErrorLogin] = useState(false);
 
   useEffect(() => {
     if (current) {
@@ -34,7 +36,7 @@ const useFirebase = () => {
     } else {
       setUserInfo(null);
     }
-    return () => {};
+    // eslint-disable-next-line
   }, [current]);
 
   const getProducts = async () => {
@@ -137,8 +139,10 @@ const useFirebase = () => {
         txtEmail,
         txtPassword
       );
+      setErrorLogin(false);
     } catch (error) {
       console.log(error);
+      setErrorLogin(true);
     }
   };
 
@@ -164,7 +168,6 @@ const useFirebase = () => {
   return {
     productos,
     producto,
-    loading,
     filtrados,
     category,
     getProducts,
@@ -178,7 +181,8 @@ const useFirebase = () => {
     show,
     logIn,
     logOut,
-    exito
+    exito,
+    errorLogin
   };
 };
 

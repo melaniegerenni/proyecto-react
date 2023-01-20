@@ -2,10 +2,10 @@ import React from "react";
 import useFirebase from "../../hook/useFirebase";
 
 const SignIn = () => {
-  const { logIn } = useFirebase();
+  const { logIn, errorLogin } = useFirebase();
 
   return (
-    <div className="sign">
+    <form className="sign">
         <h5 className="text-center">Iniciar sesión</h5>
       <label>
         Email
@@ -15,8 +15,12 @@ const SignIn = () => {
         Password
         <input type="password" placeholder="******" id="passwSignIn" />
       </label>
-      <button className="btnAzul" onClick={logIn}>Sign In</button>
-    </div>
+      {errorLogin && <p className="text-danger">El email y/o la contraseña son incorrectos</p>}
+      <input type="submit" value="Sign In" className="btnAzul" onClick={(e) => {
+        e.preventDefault();
+        logIn();
+      }} />
+    </form>
   );
 };
 

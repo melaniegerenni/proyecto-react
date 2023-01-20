@@ -1,31 +1,53 @@
-import React from "react";
+import React, {useState} from "react";
 import useFirebase from "../../hook/useFirebase";
-//import './LogIn.css';
 
 const SignUp = () => {
+const [alert, setAlert] = useState(false);
   const { createUser } = useFirebase();
 
+  const showAlert = () => {
+    setAlert(true);
+  };
+
   return (
-    <div className="sign">
+    <form className="sign">
       <h5 className="text-center">No tenés cuenta? Registrate ahora!</h5>
       <label>
-        Nombre
-        <input type="text" placeholder="nombre" id="nombre" />
+        Nombre <span className="text-danger">*</span>
+        <input type="text" placeholder="nombre" id="nombre" required={true}/>
       </label>
       <label>
-        Apellido
-        <input type="text" placeholder="apellido" id="apellido" />
+        Apellido <span className="text-danger">*</span>
+        <input type="text" placeholder="apellido" id="apellido" required={true}/>
       </label>
       <label>
-        Email
-        <input type="email" placeholder="me@hello.com" id="emailSignUp" />
+        Email <span className="text-danger">*</span>
+        <input type="email" placeholder="me@hello.com" id="emailSignUp" required={true}/>
       </label>
       <label>
-        Password
-        <input type="password" placeholder="******" id="passwSignUp" />
+        Password <span className="text-danger">*</span>
+        <input
+          type="password"
+          placeholder="******"
+          id="passwSignUp"
+          required={true}
+        />
+        {alert && <small className="d-block text-danger">Mínimo 6 caractéres</small>}
       </label>
-      <button className="btnAzul" onClick={createUser}>Sing Up</button>
-    </div>
+      <input
+        type="submit"
+        value="Sign Up"
+        className="btnAzul"
+        onClick={(e) => {
+          e.preventDefault();
+          if(document.getElementById("passwSignUp").value.length < 6){
+            showAlert();
+          }
+          createUser();
+        }}
+      />
+      <p className="text-danger">* Campos obligatorios</p>
+    </form>
   );
 };
 

@@ -5,18 +5,20 @@ import Counter from "../Counter/Counter";
 import useFirebase from "../../hook/useFirebase";
 import Spinner from "../Spinner/Spinner";
 import { CarritoContext } from "../../context/CarritoContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const ItemDetailContainer = () => {
+  const { loading } = useContext(GlobalContext);
   const { carrito } = useContext(CarritoContext);
   const { id } = useParams();
-  const { producto, getProduct, loading } = useFirebase();
+  const { producto, getProduct } = useFirebase();
   const { img, title, price, logo, stock } = producto;
 
   const prodCarrito = carrito.find((item) => item.id === id);
 
   useEffect(() => {
     getProduct(id);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line
   }, []);
 
   return (
