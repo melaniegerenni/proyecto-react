@@ -1,8 +1,17 @@
-# Getting Started with Create React App
+# Project Electro Online
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is an ecommerce created for academic and practice purposes. 
+It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and uses [Firebase SDK](https://firebase.google.com/) for authentication and database storage.
 
-## Available Scripts
+## Installation
+
+If you want to run this app in your localhost follow these instructions:
+
+```
+$ git clone https://github.com/melaniegerenni/proyecto-react.git
+$ cd ../path/to/the/file
+$ npm install
+```
 
 In the project directory, you can run:
 
