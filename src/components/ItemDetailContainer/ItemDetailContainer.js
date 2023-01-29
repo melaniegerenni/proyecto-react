@@ -14,7 +14,7 @@ const ItemDetailContainer = () => {
   const { producto, getProduct } = useFirebase();
   const { img, title, price, logo, stock } = producto;
 
-  const prodCarrito = carrito.find((item) => item.id === id);
+  const find = carrito.find((item) => item.id === id);
 
   useEffect(() => {
     getProduct(id);
@@ -38,8 +38,9 @@ const ItemDetailContainer = () => {
             <h5>{title}</h5>
             <p className="price">${price}</p>
             <Counter
-              item={producto}
-              initialValue={prodCarrito ? prodCarrito.cantidad : 0}
+              item={find || producto}
+              initialValue={find ? find.cantidad : 0}
+              btnText={find ? "Actualizar carrito" : "Agregar al carrito"}
             />
             <p className="text-center">Disponibles: {stock}</p>
           </div>
